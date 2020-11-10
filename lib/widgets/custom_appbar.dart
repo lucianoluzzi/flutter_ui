@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 
 class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
   final String title;
+  final bool isPaginaCarrinho;
 
-  CustomAppBar({this.title});
+  CustomAppBar({this.title, this.isPaginaCarrinho = false});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +21,10 @@ class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
         color: Colors.black, //change your color here
       ),
       actions: <Widget>[
-        BotaoCarrinho()
+        Visibility(
+          visible: !isPaginaCarrinho,
+          child: BotaoCarrinho(),
+        )
       ],
     );
   }
