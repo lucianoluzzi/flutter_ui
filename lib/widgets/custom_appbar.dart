@@ -9,6 +9,8 @@ class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
+    final title = this.title != null ? this.title : "";
+
     return AppBar(
       title: Text(
         title,

@@ -1,4 +1,5 @@
 import 'package:alura_advanced_ui/paginas/carrinho.dart';
+import 'package:alura_advanced_ui/paleta_cores.dart';
 import 'package:alura_advanced_ui/widgets/custom_appbar.dart';
 import 'package:alura_advanced_ui/widgets/grid_produtos.dart';
 import 'package:flutter/material.dart';
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       routes: {'/carrinho': (context) => Carrinho()},
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: PaletaCores().lilas,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: Inicio(),
@@ -88,8 +89,35 @@ class Inicio extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.grey[200],
       appBar: CustomAppBar(title: 'Lojinha Alura'),
-      body: GridProdutos(
-        moveis: moveis,
+      body: Column(
+        children: [
+          Row(
+            children: [
+              Expanded(
+                  child: Container(
+                    margin: EdgeInsets.only(
+                      left: 30, right: 20, top: 10, bottom: 10
+                    ),
+                      child: Divider(),
+                  ),
+              ),
+              Text('Produto'),
+              Expanded(
+                child: Container(
+                  margin: EdgeInsets.only(
+                      left: 30, right: 20, top: 10, bottom: 10
+                  ),
+                  child: Divider(),
+                ),
+              ),
+            ],
+          ),
+          Flexible(
+            child: GridProdutos(
+              moveis: moveis,
+            ),
+          ),
+        ],
       ),
     );
   }
