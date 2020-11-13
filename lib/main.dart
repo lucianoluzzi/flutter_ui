@@ -23,6 +23,10 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       routes: {'/carrinho': (context) => Carrinho()},
       theme: ThemeData(
+        textTheme: TextTheme(
+          headline1: TextStyle(fontSize: 20, fontFamily: 'Alata', fontWeight: FontWeight.bold, color: Colors.black),
+          headline2: TextStyle(fontSize: 20, fontFamily: 'Alata', fontWeight: FontWeight.bold, color: Colors.white),
+        ),
         primarySwatch: PaletaCores().lilas,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
