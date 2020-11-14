@@ -21,12 +21,22 @@ class Detalhes extends StatelessWidget {
         body: Align(
           alignment: Alignment.bottomCenter,
           child: Container(
-            margin: EdgeInsets.all(32),
-            height: 205,
-            child: CardDetalhes(
-              movel: movel,
+            margin: EdgeInsets.all(30),
+            child: Wrap(
+              children: [
+                CardDetalhes(
+                  movel: movel,
+                ),
+              ],
             ),
           ),
+          // Container(
+          //   margin: EdgeInsets.all(32),
+          //   height: 205,
+          //   child: CardDetalhes(
+          //     movel: movel,
+          //   ),
+          // ),
         ),
       ),
     );
