@@ -4,7 +4,7 @@ import 'movel.dart';
 
 class ItemCarrinho {
   final Movel movel;
-  final int quantidade;
+  int quantidade;
 
   ItemCarrinho({@required this.movel, @required this.quantidade});
 }
