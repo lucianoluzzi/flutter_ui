@@ -8,8 +8,9 @@ import 'package:intl/intl.dart';
 class CardDetalhes extends StatelessWidget {
   final Movel movel;
   final _formatacaoReais = NumberFormat.currency(locale: 'pt_BR');
+  final Function atualizaPagina;
 
-  CardDetalhes({@required this.movel});
+  CardDetalhes({@required this.movel, this.atualizaPagina});
 
   @override
   Widget build(BuildContext context) {
@@ -56,5 +57,6 @@ class CardDetalhes extends StatelessWidget {
 
   _adicionarItemCarrinho(ItemCarrinho item) {
     Inicio.listaCarrinho.add(item);
+    atualizaPagina();
   }
 }
