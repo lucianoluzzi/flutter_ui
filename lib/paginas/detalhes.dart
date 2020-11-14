@@ -41,13 +41,6 @@ class _DetalhesState extends State<Detalhes> {
               ],
             ),
           ),
-          // Container(
-          //   margin: EdgeInsets.all(32),
-          //   height: 205,
-          //   child: CardDetalhes(
-          //     movel: movel,
-          //   ),
-          // ),
         ),
       ),
     );

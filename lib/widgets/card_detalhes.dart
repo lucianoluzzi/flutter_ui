@@ -56,7 +56,16 @@ class CardDetalhes extends StatelessWidget {
   }
 
   _adicionarItemCarrinho(ItemCarrinho item) {
-    Inicio.listaCarrinho.add(item);
+    _addOrIncrease(Inicio.listaCarrinho, item);
     atualizaPagina();
+  }
+
+  bool _addOrIncrease(List<ItemCarrinho> items, ItemCarrinho item) {
+    int itemIndex = items.indexWhere((item) => item.movel == movel);
+    if (itemIndex != -1) {
+      items[itemIndex].quantidade++;
+    } else {
+      Inicio.listaCarrinho.add(item);
+    }
   }
 }
