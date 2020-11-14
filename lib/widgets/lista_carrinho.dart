@@ -2,9 +2,11 @@ import 'package:alura_advanced_ui/modelos/item_carrinnho.dart';
 import 'package:alura_advanced_ui/modelos/movel.dart';
 import 'package:alura_advanced_ui/paginas/main.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class ListaCarrinho extends StatefulWidget {
   final Function _atualiza;
+
   ListaCarrinho(this._atualiza);
 
   @override
@@ -13,6 +15,7 @@ class ListaCarrinho extends StatefulWidget {
 
 class _ListaCarrinhoState extends State<ListaCarrinho> {
   final List<ItemCarrinho> items = Inicio.listaCarrinho;
+  final formatter = NumberFormat.currency(locale: 'pt-BR', symbol: 'R\$');
 
   @override
   Widget build(BuildContext context) {
@@ -27,9 +30,13 @@ class _ListaCarrinhoState extends State<ListaCarrinho> {
             clipBehavior: Clip.hardEdge,
             child: Row(
               children: [
-                Image(
-                  height: 92,
-                  image: AssetImage("utilidades/assets/imagens/${movel.foto}"),
+                Expanded(
+                  child: Image(
+                    height: 92,
+                    image:
+                        AssetImage("utilidades/assets/imagens/${movel.foto}"),
+                    fit: BoxFit.cover,
+                  ),
                 ),
                 Expanded(
                   child: Container(
@@ -39,11 +46,14 @@ class _ListaCarrinhoState extends State<ListaCarrinho> {
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(movel.titulo),
+                          Text(
+                            movel.titulo,
+                            style: Theme.of(context).textTheme.headline3,
+                          ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text("${movel.preco}"),
+                              Text("${formatter.format(movel.preco)}"),
                               Row(
                                 children: [
                                   Container(
@@ -103,7 +113,7 @@ class _ListaCarrinhoState extends State<ListaCarrinho> {
         widget._atualiza();
       });
     } else
-       _remover(item);
+      _remover(item);
   }
 
   _remover(ItemCarrinho itemCarrinho) {
