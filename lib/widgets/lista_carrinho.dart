@@ -107,7 +107,7 @@ class _ListaCarrinhoState extends State<ListaCarrinho> {
   }
 
   _diminuitQuantidade(ItemCarrinho item) {
-    if (item.quantidade >= 1) {
+    if (item.quantidade > 1) {
       setState(() {
         item.quantidade--;
         widget._atualiza();

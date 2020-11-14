@@ -54,8 +54,22 @@ class _CarrinhoState extends State<Carrinho> {
 
   int _calcularTotal() {
     final itemsCarrinho = Inicio.listaCarrinho;
+    if (itemsCarrinho.isEmpty) return 0;
+
     return itemsCarrinho
         .map((item) => item.movel.preco * item.quantidade)
         .reduce((currentValue, newPrice) => currentValue + newPrice);
+  }
+
+  _construirTela() {
+    if (Inicio.listaCarrinho.isNotEmpty) {
+      return ListaCarrinho(_atualiza);
+    } else {
+      return Container(
+        alignment: Alignment.center,
+        height: double.infinity,
+        child: Text('Carrinho vazio'),
+      );
+    }
   }
 }

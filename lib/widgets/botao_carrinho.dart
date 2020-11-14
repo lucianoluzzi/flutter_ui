@@ -2,12 +2,18 @@ import 'package:alura_advanced_ui/paginas/main.dart';
 import 'package:alura_advanced_ui/widgets/indicador_botao_carrinho.dart';
 import 'package:flutter/material.dart';
 
-class BotaoCarrinho extends StatelessWidget {
+class BotaoCarrinho extends StatefulWidget {
+  @override
+  _BotaoCarrinhoState createState() => _BotaoCarrinhoState();
+}
+
+class _BotaoCarrinhoState extends State<BotaoCarrinho> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.pushNamed(context, '/carrinho');
+        Navigator.pushNamed(context, '/carrinho')
+            .then((value) => setState(() {}));
       },
       child: Container(
         decoration: BoxDecoration(
